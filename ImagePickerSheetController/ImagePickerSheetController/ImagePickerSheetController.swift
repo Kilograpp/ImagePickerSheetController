@@ -408,10 +408,8 @@ extension ImagePickerSheetController: UICollectionViewDelegate {
     
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if let maximumSelection = maximumSelection {
-            if selectedImageIndices.count >= maximumSelection,
-                let previousItemIndex = selectedImageIndices.first {
-                    supplementaryViews[previousItemIndex]?.selected = false
-                    selectedImageIndices.removeAtIndex(0)
+            if selectedImageIndices.count >= maximumSelection {
+                    return
             }
         }
         
