@@ -107,7 +107,7 @@ open class ImagePickerSheetController: UIViewController {
     
     fileprivate lazy var requestOptions: PHImageRequestOptions = {
         let options = PHImageRequestOptions()
-        options.deliveryMode = .highQualityFormat
+        options.deliveryMode = .opportunistic
         options.resizeMode = .fast
         
         return options
