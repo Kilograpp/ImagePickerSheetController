@@ -247,7 +247,6 @@ open class ImagePickerSheetController: UIViewController {
         
         let result = PHAsset.fetchAssets(with: options)
         let requestOptions = PHImageRequestOptions()
-        requestOptions.isSynchronous = true
         requestOptions.deliveryMode = .fastFormat
         
         result.enumerateObjects(options: [], using: { asset, index, stop in
@@ -257,17 +256,18 @@ open class ImagePickerSheetController: UIViewController {
                 }
             }
             
-            self.imageManager.requestImageData(for: asset, options: requestOptions) { data, _, _, info in
-                if data != nil {
-                    self.assets.append(asset)
-                }
-            }
+//            self.imageManager.requestImageData(for: asset, options: requestOptions) { data, _, _, info in
+//                if data != nil {
+//                    self.assets.append(asset)
+//                }
+//            }
+            self.assets.append(asset)
         })
     }
     
     fileprivate func requestImageForAsset(_ asset: PHAsset, completion: @escaping (_ image: UIImage?) -> ()) {
         let targetSize = sizeForAsset(asset, scale: UIScreen.main.scale)
-        requestOptions.isSynchronous = true
+//        requestOptions.isSynchronous = true
         
         // Workaround because PHImageManager.requestImageForAsset doesn't work for burst images
         if asset.representsBurst {
