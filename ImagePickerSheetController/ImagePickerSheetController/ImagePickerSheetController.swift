@@ -247,7 +247,7 @@ open class ImagePickerSheetController: UIViewController {
         
         let result = PHAsset.fetchAssets(with: options)
         let requestOptions = PHImageRequestOptions()
-        requestOptions.isSynchronous = true
+//        requestOptions.isSynchronous = true
         requestOptions.deliveryMode = .fastFormat
         
         result.enumerateObjects(options: [], using: { asset, index, stop in
@@ -370,7 +370,7 @@ open class ImagePickerSheetController: UIViewController {
         
         UIView.animate(withDuration: 0.2, animations: {
             self.view.layoutIfNeeded()
-            self.sheetCollectionView.collectionViewLayout.invalidateLayout()
+//            self.sheetCollectionView.collectionViewLayout.invalidateLayout()
         }, completion: { _ in
             self.delegate?.controllerDidEnlargePreview?(self)
             
